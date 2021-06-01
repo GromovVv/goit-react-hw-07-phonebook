@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, connect } from 'react-redux';
 import { getContacts } from '../../Redux/phonebook-selectors';
 import { addContact } from '../../Redux/phonebook-operations';
+
+ 
 import './ContactForm.scss';
 
 function ContactForm() {
@@ -82,4 +84,10 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+const mapDispatchToProps = dispatch => {
+  return {
+    onSubmit: (name, number) => dispatch(addContact(name, number)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ContactForm);

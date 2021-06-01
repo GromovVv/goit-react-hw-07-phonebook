@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, connect } from 'react-redux';
 import { getFilter } from '../../Redux/phonebook-selectors';
 import { changeFilter } from '../../Redux/phonebook-actions';
 import './Filter.scss';
@@ -31,4 +31,12 @@ Filter.propTypes = {
   onChange: PropTypes.func,
 };
 
-export default Filter;
+const mapStateToProps = state => ({
+  filter: getFilter(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+  onChange: event => dispatch(changeFilter(event.target.value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

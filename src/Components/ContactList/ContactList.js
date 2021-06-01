@@ -1,7 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from '../../Redux/phonebook-operations';
+import { useSelector, useDispatch, connect } from 'react-redux';
+import { deleteContact, fetchContacts } from '../../Redux/phonebook-operations';
 import { getVisibleContacts } from '../../Redux/phonebook-selectors';
-
 import PropTypes from 'prop-types';
 
 import './ContactList.scss';
@@ -40,4 +39,13 @@ ContactList.propTypes = {
   onDeleteContact: PropTypes.func,
 };
 
-export default ContactList;
+const mapStateToProps = state => ({
+  contacts: getVisibleContacts(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchContacts: () => dispatch(fetchContacts()),
+  onDeleteContact: id => dispatch(deleteContact(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
