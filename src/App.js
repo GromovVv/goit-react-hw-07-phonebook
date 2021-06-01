@@ -14,6 +14,7 @@ function App({isLoading}) {
 
   return (
     <div className="App">
+      { isLoading && <h1>Loading...</h1>}
       <h2 className="Title">Phonebook</h2>
       <ContactForm />
       <h2 className="Title">Total contacts: {totalContactsCount}</h2>
@@ -25,7 +26,6 @@ function App({isLoading}) {
       ) : (
         <span className="Empty">Your phonebook is empty or you have no such contact</span>
       )}
-       { isLoading && <h1>Loading...</h1>}
     </div>
   );
 }
