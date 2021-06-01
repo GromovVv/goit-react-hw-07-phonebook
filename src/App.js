@@ -20,9 +20,7 @@ function App({isLoading}) {
       <h2 className="Title">Total contacts: {totalContactsCount}</h2>
       <Filter />
       {contacts.length > 0 ? (
-        <>
           <ContactList />
-        </>
       ) : (
         <span className="Empty">Your phonebook is empty or you have no such contact</span>
       )}

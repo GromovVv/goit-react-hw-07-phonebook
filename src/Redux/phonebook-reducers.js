@@ -37,8 +37,8 @@ const filter = createReducer('', {
 });
 
 const error = createReducer(null, {
-  [fetchContactError]: (_, action) => action.payload,
   [fetchContactRequest]: () => null,
+  [fetchContactError]: (_, action) => action.payload,
   [addContactRequest]: () => null,
   [addContactError]: (_, action) => action.payload,
   [deleteContactRequest]: () => null,
