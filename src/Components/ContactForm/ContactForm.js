@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { getContacts } from '../../Redux/phonebook-selectors';
 import { addContact } from '../../Redux/phonebook-operations';
 import './ContactForm.scss';
@@ -57,7 +56,7 @@ function ContactForm() {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             onChange={event => setName(event.currentTarget.value)}
-            required
+            // required
           />
         </label>
         <label className="form__label">

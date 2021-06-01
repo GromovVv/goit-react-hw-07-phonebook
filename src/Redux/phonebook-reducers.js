@@ -37,12 +37,12 @@ const filter = createReducer('', {
 });
 
 const error = createReducer(null, {
-    [fetchContactError]: (_, action) => action.payload,
-    [fetchContactRequest]: () => null,
-    [addContactRequest]:() => null,
-    [deleteContactRequest]:() => null,
-    [deleteContactError]: (_, action) => action.payload,
-    [addContactError]: (_, action) => action.payload,
+  [fetchContactError]: (_, action) => action.payload,
+  [fetchContactRequest]: () => null,
+  [addContactRequest]: () => null,
+  [addContactError]: (_, action) => action.payload,
+  [deleteContactRequest]: () => null,
+  [deleteContactError]: (_, action) => action.payload,
 });
 
 export default combineReducers({
